@@ -96,6 +96,8 @@ install_bins() {
   local npm_engine=$(read_json "$BUILD_DIR/package.json" ".engines.npm")
   local yarn_engine=$(read_json "$BUILD_DIR/package.json" ".engines.yarn")
 
+  install_jdk ${BUILD_DIR} #installing java for Sonar Qube
+
   if [ -n "$iojs_engine" ]; then
     echo "engines.iojs (package.json):  $iojs_engine (iojs)"
   else
